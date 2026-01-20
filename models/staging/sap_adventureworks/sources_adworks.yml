@@ -1,0 +1,55 @@
+version: 2
+
+sources:
+  - name: adworks
+    database: fea_academy
+    schema: adventure_works
+    tables:
+      - name: sales_salesorderheader
+        description: Tabela de Orders
+        columns:
+          - name: salesorderid 
+            description: Chave primária da tabela Orders
+            tests: 
+             - unique
+             - not_null
+      - name: sales_salesorderdetail
+        description: Tabela de detalhes de Orders
+        columns:
+          - name: salesorderdetailid
+            description: Chave primária da tabela Orders
+            tests: 
+             - unique
+             - not_null
+      - name: production_product
+        description: Tabela de detalhes de Products
+        columns: 
+          - name: productid
+            description: Chave primária da tabela Products
+            tests:
+              - not_null
+              - unique
+      - name: sales_customer
+        description: Tabela de Customers
+        columns:
+          - name: customerid
+            description: Chave primária da tabela Customers
+            tests:
+              - not_null
+              - unique
+      - name: sales_creditcard
+        description: Tabela de Credit Cards
+        columns:
+          - name: creditcardid
+            description: Chave primária da tabela de Credit Cards
+            tests:
+              - not_null
+              - unique
+      - name: sales_salesreason
+        description: Tabela de Sales reasons
+        columns:
+          - name: salesreasonid
+            description: Chave primária da tabela de Sales reasons
+            tests:
+              - not_null
+              - unique
