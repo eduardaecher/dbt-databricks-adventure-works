@@ -138,7 +138,7 @@ sources:
               - not_null
         
 
-      - name: prodution_productsubcategory
+      - name: production_productsubcategory
         description: Tabela de Subcategorias de produtos
         columns:
           - name: productsubcategoryid
@@ -233,7 +233,7 @@ sources:
               - not_null
 
 
-      - name: countryregion
+      - name: person_countryregion
         description: Países e regiões
         columns:
           - name: countryregioncode
