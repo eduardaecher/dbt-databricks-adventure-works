@@ -27,9 +27,7 @@ sources:
             tests:
               - not_null
           - name: creditcardid
-            description: Chave primária da tabela de cartões de crédito
-            tests:
-              - not_null    
+            description: Chave primária da tabela de cartões de crédito. São permitidos valores nulos na origem 
           - name: territoryid
             description: Chave primária do território de vendas.
             tests:
@@ -77,19 +75,14 @@ sources:
             tests:
               - not_null
               - unique
-          - name: personid
-            description: Identificador da pessoa associada ao cliente
-            tests:
-              - not_null
 
 
       - name: sales_creditcard
         description: Tabela de cartões de crédito
         columns:
           - name: creditcardid
-            description: Chave primária da tabela de cartões de crédito
+            description: Chave primária da tabela de cartões de crédito. São permitidos valores nulos na origem
             tests:
-              - not_null
               - unique
           - name: cardtype
             description: Tipo de cartão de crédito
@@ -133,18 +126,15 @@ sources:
             tests:
               - not_null
           - name: productsubcategoryid
-            description: Identificador da subcategoria do produto
-            tests:
-              - not_null
+            description: Identificador da subcategoria do produto. São permitidos valores nulos na origem
         
 
       - name: production_productsubcategory
         description: Tabela de Subcategorias de produtos
         columns:
           - name: productsubcategoryid
-            description: Chave primária da subcategoria de produtos
+            description: Chave primária da subcategoria de produtos. Pode ter valores nulos na origem
             tests:
-              - not_null
               - unique
           - name: productcategoryid
             description: Identificador da categoria do produto.
@@ -188,9 +178,7 @@ sources:
         description: Relacionamento entre pessoas e endereços
         columns:
           - name: businessentityid
-            description: Identificador da pessoa
-            tests:
-              - not_null
+            description: Identificador da pessoa. Podem existir valores nulos na origem
           - name: addressid
             description: Chave primária da tabela de endereços
             tests:
@@ -219,16 +207,15 @@ sources:
         description: Estados dos clientes
         columns:
           - name: stateprovinceid
-            description: Chave primaria da tabela de estados
+            description: Chave primaria da tabela de estados. Podem existir valores nulos na origem
             tests:
-              - not_null
               - unique
           - name: name
             description: Nome do estado
             tests:
               - not_null
           - name: countryregioncode
-            description: Código do país
+            description: Código do país. Pode ter valores nulos na origem
             tests:
               - not_null
 
@@ -237,9 +224,8 @@ sources:
         description: Países e regiões
         columns:
           - name: countryregioncode
-            description: Chave primária da tabela de codigos do país
+            description: Chave primária da tabela de codigos do país. Podem existir valores nulos na origem
             tests:
-              - not_null
               - unique
           - name: name
             description: Nome do país.

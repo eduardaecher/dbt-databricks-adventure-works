@@ -1,0 +1,102 @@
+version: 2
+
+models:
+
+  - name: stg-adworks__salesorderheader
+    description: Staging do cabeçalho dos pedidos de venda.
+    columns:
+      - name: order_id
+        description: Identificador único do pedido de venda.
+        tests:
+          - not_null
+          - unique
+
+  - name: stg-adworks__salesorderdetail
+    description: Staging dos itens dos pedidos de venda (grão é item do pedido).
+    columns:
+      - name: order_detail_id
+        description: Identificador único do item do pedido.
+        tests:
+          - not_null
+          - unique
+
+  - name: stg-adworks__customer
+    description: Staging dos clientes.
+    columns:
+      - name: customer_id
+        description: Identificador único do cliente.
+        tests:
+          - not_null
+          - unique
+
+  - name: stg-adworks__creditcard
+    description: Staging dos cartões de crédito.
+    columns:
+      - name: credit_card_id
+        description: Identificador único do cartão de crédito.
+        tests:
+          - not_null
+          - unique
+
+  - name: stg-adworks__salesreason
+    description: Staging dos motivos de venda.
+    columns:
+      - name: sales_reason_id
+        description: Identificador único do motivo de venda.
+        tests:
+          - not_null
+          - unique
+
+  - name: stg-adworks__product
+    description: Staging dos produtos.
+    columns:
+      - name: product_id
+        description: Identificador único do produto.
+        tests:
+          - not_null
+          - unique
+
+  - name: stg-adworks__productsubcategory
+    description: Staging das subcategorias de produto.
+    columns:
+      - name: product_subcategory_id
+        description: Identificador único da subcategoria do produto.
+        tests:
+          - not_null
+          - unique
+
+  - name: stg-adworks__productcategory
+    description: Staging das categorias de produto.
+    columns:
+      - name: product_category_id
+        description: Identificador único da categoria do produto.
+        tests:
+          - not_null
+          - unique
+
+  - name: stg-adworks__person
+    description: Staging das pessoas (clientes e vendedores).
+    columns:
+      - name: business_entity_id
+        description: Identificador único da entidade de negócio (pessoa).
+        tests:
+          - not_null
+          - unique
+
+  - name: stg-adworks__address
+    description: Staging dos endereços.
+    columns:
+      - name: address_id
+        description: Identificador único do endereço.
+        tests:
+          - not_null
+          - unique
+
+  - name: stg-adworks__stateprovince
+    description: Staging dos estados/províncias.
+    columns:
+      - name: state_province_id
+        description: Identificador único do estado/província.
+        tests:
+          - not_null
+          - unique
