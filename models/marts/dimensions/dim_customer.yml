@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: Dimensão de clientes
+
+    columns:
+      - name: customer_sk
+        description: Surrogate key do cliente
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        description: Identificador natural do cliente no sistema transacional
+        tests:
+          - not_null
+
+      - name: first_name
+        description: Primeiro nome do cliente
+        tests:
+          - not_null
+
+      - name: last_name
+        description: Sobrenome do cliente
+        tests:
+          - not_null

@@ -75,6 +75,13 @@ country_region as (
 
 ),
 
+person as (
+
+    select *
+    from {{ ref('stg_adworks__person') }}
+
+),
+
 joined as (
 
     select
@@ -96,6 +103,8 @@ joined as (
 
 
         soh.customer_id,
+        per.first_name,
+        per.last_name,
 
         soh.credit_card_id,
         cc.card_type,
@@ -135,6 +144,8 @@ joined as (
     left join customer c
         on soh.customer_id = c.customer_id
 
+    left join person per
+        on c.person_id = per.business_entity_id
 
     left join credit_card cc
         on soh.credit_card_id = cc.credit_card_id

@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_product
+    description: Dimensão de produtos
+    columns:
+      - name: product_sk
+        description: Surrogate key do produto
+        tests:
+          - not_null
+          - unique
+
+      - name: product_id
+        description: ID natural do produto na fonte
+        tests:
+          - not_null
