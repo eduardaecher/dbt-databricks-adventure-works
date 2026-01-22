@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: dim_status
+    description: >
+      Dimensão de status do pedido.
+      Contém a descrição dos estados possíveis de um pedido de venda.
+
+    columns:
+      - name: status_sk
+        description: Chave substituta da dimensão de status.
+        tests:
+          - not_null
+          - unique
+
+      - name: status_id
+        description: Código do status do pedido conforme o sistema transacional.
+        tests:
+          - not_null
+          - unique
+
+      - name: status_description
+        description: Descrição textual do status do pedido (neste exemplo foi atribuída uma descrição hipotética, pois não havia coluna de descrição de status na fonte)
+        tests:
+          - not_null

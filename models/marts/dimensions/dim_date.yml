@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: Dimensão de datas derivada das datas de pedidos.
+    columns:
+      - name: date_id
+        description: Chave primária da dimensão de datas no formato YYYYMMDD.
+        tests:
+          - not_null
+          - unique
+
+      - name: date
+        description: Data calendário.
+
+      - name: year
+        description: Ano da data.
+
+      - name: month
+        description: Mês da data.
+
+      - name: quarter
+        description: Trimestre da data.

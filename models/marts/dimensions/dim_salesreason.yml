@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dim_salesreason
+    description: Dimensão que representa os motivos de venda.
+    columns:
+      - name: sales_reason_sk
+        description: Surrogate key da dimensão de motivo de venda.
+        tests:
+          - not_null
+          - unique
+
+      - name: sales_reason_id
+        description: Identificador do motivo de venda na base transacional.
+        tests:
+          - not_null
+
+      - name: sales_reason_name
+        description: Nome do motivo de venda.
