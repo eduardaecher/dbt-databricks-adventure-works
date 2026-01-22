@@ -11,8 +11,8 @@ with joined as (
         products.product_name,
         products.product_subcategory_id
 
-    from {{ ref('stg-adworks__salesorderdetail') }} orders
-    left join {{ ref('stg-adworks__product') }} products
+    from {{ ref('stg_adworks__salesorderdetail') }} orders
+    left join {{ ref('stg_adworks__product') }} products
         on orders.product_id = products.product_id
 
 )

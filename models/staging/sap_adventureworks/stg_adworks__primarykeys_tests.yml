@@ -2,7 +2,7 @@ version: 2
 
 models:
 
-  - name: stg-adworks__salesorderheader
+  - name: stg_adworks__salesorderheader
     description: Staging do cabeçalho dos pedidos de venda.
     columns:
       - name: order_id
@@ -11,7 +11,7 @@ models:
           - not_null
           - unique
 
-  - name: stg-adworks__salesorderdetail
+  - name: stg_adworks__salesorderdetail
     description: Staging dos itens dos pedidos de venda (grão é item do pedido).
     columns:
       - name: order_detail_id
@@ -20,7 +20,7 @@ models:
           - not_null
           - unique
 
-  - name: stg-adworks__customer
+  - name: stg_adworks__customer
     description: Staging dos clientes.
     columns:
       - name: customer_id
@@ -29,7 +29,7 @@ models:
           - not_null
           - unique
 
-  - name: stg-adworks__creditcard
+  - name: stg_adworks__creditcard
     description: Staging dos cartões de crédito.
     columns:
       - name: credit_card_id
@@ -38,7 +38,7 @@ models:
           - not_null
           - unique
 
-  - name: stg-adworks__salesreason
+  - name: stg_adworks__salesreason
     description: Staging dos motivos de venda.
     columns:
       - name: sales_reason_id
@@ -47,7 +47,7 @@ models:
           - not_null
           - unique
 
-  - name: stg-adworks__product
+  - name: stg_adworks__product
     description: Staging dos produtos.
     columns:
       - name: product_id
@@ -56,7 +56,7 @@ models:
           - not_null
           - unique
 
-  - name: stg-adworks__productsubcategory
+  - name: stg_adworks__productsubcategory
     description: Staging das subcategorias de produto.
     columns:
       - name: product_subcategory_id
@@ -65,7 +65,7 @@ models:
           - not_null
           - unique
 
-  - name: stg-adworks__productcategory
+  - name: stg_adworks__productcategory
     description: Staging das categorias de produto.
     columns:
       - name: product_category_id
@@ -74,7 +74,7 @@ models:
           - not_null
           - unique
 
-  - name: stg-adworks__person
+  - name: stg_adworks__person
     description: Staging das pessoas (clientes e vendedores).
     columns:
       - name: business_entity_id
@@ -83,7 +83,7 @@ models:
           - not_null
           - unique
 
-  - name: stg-adworks__address
+  - name: stg_adworks__address
     description: Staging dos endereços.
     columns:
       - name: address_id
@@ -92,7 +92,7 @@ models:
           - not_null
           - unique
 
-  - name: stg-adworks__stateprovince
+  - name: stg_adworks__stateprovince
     description: Staging dos estados/províncias.
     columns:
       - name: state_province_id
