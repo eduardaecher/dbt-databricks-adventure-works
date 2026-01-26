@@ -6,5 +6,5 @@ select distinct
 
     sales_reason_name
 
-from {{ ref('int_sales_order_items_join') }}
+from {{ ref('int_sales_order_items_denormalized') }}
 where sales_reason_id is not null

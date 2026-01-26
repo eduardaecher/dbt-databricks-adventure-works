@@ -1,0 +1,73 @@
+version: 2
+
+models:
+  - name: fct_sales
+    description: >
+      Tabela fato de vendas no grão de 1 linha por item de pedido.
+      Contém métricas financeiras e chaves substitutas para relacionamento
+      com as dimensões. O relacionamento com motivo de venda é tratado
+      via tabela bridge.
+
+    columns:
+      - name: sales_sk
+        description: Chave substituta da tabela fato (1 linha por item de pedido).
+        tests:
+          - not_null
+          - unique
+
+      - name: order_detail_id
+        description: Identificador natural do item de pedido (grão da fato).
+        tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        description: Identificador do pedido.
+        tests:
+          - not_null
+
+      - name: order_date
+        description: Data em que o pedido foi realizado.
+        tests:
+          - not_null
+
+      - name: product_sk
+        description: Chave substituta da dimensão de produtos.
+        tests:
+          - not_null
+
+      - name: customer_sk
+        description: Chave substituta da dimensão de clientes.
+        tests:
+          - not_null
+
+      - name: credit_card_sk
+        description: Chave substituta da dimensão de cartões de crédito.
+
+      - name: status_sk
+        description: Chave substituta da dimensão de status do pedido.
+        tests:
+          - not_null
+
+      - name: order_quantity
+        description: Quantidade de itens vendidos no item de pedido.
+        tests:
+          - not_null
+
+      - name: unit_price
+        description: Preço unitário do produto no momento da venda.
+        tests:
+          - not_null
+
+      - name: unit_price_discount
+        description: Percentual de desconto aplicado ao item do pedido.
+
+      - name: gross_amount
+        description: Valor bruto da venda (quantidade x preço unitário).
+        tests:
+          - not_null
+
+      - name: net_amount
+        description: Valor líquido da venda após aplicação de desconto.
+        tests:
+          - not_null

@@ -9,4 +9,4 @@ select distinct
     product_category_id,
     product_category_name
 
-from {{ ref('int_sales_order_items_join') }}
+from {{ ref('int_sales_order_items_denormalized') }}

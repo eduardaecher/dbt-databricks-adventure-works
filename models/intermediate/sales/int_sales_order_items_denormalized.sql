@@ -93,7 +93,6 @@ joined as (
 
     select
 
-        -- grain: 1 linha = 1 item de pedido
         sod.order_detail_id,
         sod.order_id,
 
@@ -101,7 +100,11 @@ joined as (
         soh.due_date,
         soh.ship_date,
 
-        -- produto
+        soh.subtotal_amount,
+        soh.tax_amount,
+        soh.freight_amount,
+        soh.total_due_amount,
+
         sod.product_id,
         p.product_name,
         p.product_number,
@@ -112,28 +115,23 @@ joined as (
         pc.product_category_id,
         pc.product_category_name,
 
-        -- cliente
         soh.customer_id,
         per.first_name,
         per.last_name,
 
-        -- pagamento
         soh.credit_card_id,
         cc.card_type,
 
-        -- status
         soh.status_id,
 
-        -- motivo de venda
+
         sr.sales_reason_id,
         sr.sales_reason_name,
 
-        -- localização
         addr.city_name,
         sp.state_province_name,
         cr.country_name,
 
-        -- métricas
         sod.order_quantity,
         sod.unit_price,
         sod.unit_price_discount

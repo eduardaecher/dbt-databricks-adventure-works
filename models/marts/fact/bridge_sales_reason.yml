@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: bridge_sales_reason
+    description: >
+      Tabela bridge que resolve o relacionamento N:N entre itens de pedido
+      (fct_sales) e motivos de venda (dim_sales_reason).
+
+    columns:
+      - name: sales_reason_bridge_sk
+        description: Chave substituta da tabela bridge.
+        tests:
+          - not_null
+          - unique
+
+      - name: sales_sk
+        description: Chave substituta da tabela fato de vendas.
+        tests:
+          - not_null
+
+      - name: order_detail_id
+        description: Identificador natural do item de pedido.
+        tests:
+          - not_null
+
+      - name: sales_reason_sk
+        description: Chave substituta da dimensão de motivo de venda.
+        tests:
+          - not_null
+
+      - name: sales_reason_id
+        description: Identificador natural do motivo de venda.
+        tests:
+          - not_null

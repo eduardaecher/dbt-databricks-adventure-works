@@ -9,7 +9,7 @@ with dates as (
 date_attributes as (
 
     select
-        -- chave da dimensão (YYYYMMDD)
+
         cast(date_format(order_date, 'yyyyMMdd') as int) as date_id,
 
         order_date as date,

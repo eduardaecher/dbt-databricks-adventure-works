@@ -2,7 +2,7 @@ with base as (
 
     select distinct
         status_id
-    from {{ ref('int_sales_order_items_join') }}
+    from {{ ref('int_sales_order_items_denormalized') }}
     where status_id is not null
 
 ),
