@@ -1,4 +1,13 @@
-with base as (
+with fact_sales as (
+
+    select
+        sales_sk,
+        order_detail_id
+    from {{ ref('fct_sales') }}
+
+),
+
+reasons as (
 
     select distinct
         order_detail_id,
@@ -8,26 +17,26 @@ with base as (
 
 ),
 
-surrogate_keys as (
+joined as (
 
     select
-        -- FK para a fato
-        {{ dbt_utils.generate_surrogate_key(['order_detail_id']) }} as sales_sk,
+        fs.sales_sk,
 
-        -- FK para a dimensão de motivo de venda
-        {{ dbt_utils.generate_surrogate_key(['sales_reason_id']) }} as sales_reason_sk,
+        {{ dbt_utils.generate_surrogate_key(['r.sales_reason_id']) }} as sales_reason_sk,
 
-        -- chave da própria bridge
         {{ dbt_utils.generate_surrogate_key([
-            'order_detail_id',
-            'sales_reason_id'
+            'fs.sales_sk',
+            'r.sales_reason_id'
         ]) }} as sales_reason_bridge_sk,
 
-        order_detail_id,
-        sales_reason_id
+        r.order_detail_id,
+        r.sales_reason_id
 
-    from base
+    from reasons r
+    inner join fact_sales fs
+        on r.order_detail_id = fs.order_detail_id
+
 )
 
 select *
-from surrogate_keys
+from joined

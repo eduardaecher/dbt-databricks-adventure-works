@@ -15,7 +15,7 @@ metrics as (
 
         product_id,
         customer_id,
-        credit_card_id,
+        card_type,
         status_id,
 
         order_quantity,
@@ -35,7 +35,7 @@ surrogate_keys as (
         {{ dbt_utils.generate_surrogate_key(['order_detail_id']) }} as sales_sk,
         {{ dbt_utils.generate_surrogate_key(['product_id']) }} as product_sk,
         {{ dbt_utils.generate_surrogate_key(['customer_id']) }} as customer_sk,
-        {{ dbt_utils.generate_surrogate_key(['credit_card_id']) }} as credit_card_sk,
+        {{ dbt_utils.generate_surrogate_key(['card_type']) }} as credit_card_sk,
         {{ dbt_utils.generate_surrogate_key(['status_id']) }} as status_sk,
 
         order_id,
