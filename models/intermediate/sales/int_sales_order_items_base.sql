@@ -40,7 +40,6 @@ select
     sod.unit_price,
     sod.unit_price_discount,
 
-    -- header values (para cálculo na fato)
     soh.subtotal_amount,
     soh.tax_amount,
     soh.freight_amount,

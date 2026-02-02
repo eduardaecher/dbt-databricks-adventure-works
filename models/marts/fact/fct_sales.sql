@@ -18,14 +18,25 @@ metrics as (
         card_type,
         status_id,
 
-        order_quantity,
-        unit_price,
-        unit_price_discount,
+        cast(order_quantity as decimal(18,4)) as order_quantity,
+        cast(unit_price as decimal(18,4)) as unit_price,
+        cast(coalesce(unit_price_discount, 0) as decimal(18,6)) as unit_price_discount,
 
-        order_quantity * unit_price as gross_amount,
-        order_quantity * unit_price * (1 - unit_price_discount) as net_amount
+        cast(
+            cast(order_quantity as decimal(18,4)) * cast(unit_price as decimal(18,4))
+            as decimal(18,4)
+        ) as gross_amount,
+
+
+        cast(
+            cast(order_quantity as decimal(18,4))
+            * cast(unit_price as decimal(18,4))
+            * (1 - cast(coalesce(unit_price_discount, 0) as decimal(18,6)))
+            as decimal(18,4)
+        ) as net_amount
 
     from base
+
 ),
 
 surrogate_keys as (
@@ -49,6 +60,7 @@ surrogate_keys as (
         net_amount
 
     from metrics
+
 )
 
 select *

@@ -1,12 +1,12 @@
-with sales_2011 as (
+with gross_2011 as (
 
     select
-        sum(gross_amount) as total_gross_amount
+        round(sum(cast(gross_amount as decimal(38,4))), 2) as gross_sales_2011
     from {{ ref('fct_sales') }}
-    where year(order_date) = 2011
+    where year(cast(order_date as date)) = 2011
 
 )
 
 select *
-from sales_2011
-where total_gross_amount <> 12646112.16
+from gross_2011
+where gross_sales_2011 <> 12646112.16
